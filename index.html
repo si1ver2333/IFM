@@ -1,29 +1,46 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<!DOCTYPE html>
-<html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <title>我的 GitHub 播客平台</title>
     <style>
         /* 您的 CSS 样式在这里 */
-        body { font-family: sans-serif; max-width: 800px; margin: auto; padding: 20px; }
-        .episode { border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 20px; }
-        h1 { text-align: center; }
-        audio { width: 100%; margin-top: 10px; }
+        body {
+            font-family: sans-serif;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .episode {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 10px;
+        }
     </style>
 </head>
+
 <body>
 
     <h1>我的播客：RSS Feed Driven</h1>
     <p id="channel-description">加载中...</p>
 
     <div id="episodes-list">
-        </div>
+    </div>
 
     <script>
         // RSS Feed 的完整 URL，将由 GitHub Pages 自动生成
-        const rssUrl = './feed.xml'; 
+        const rssUrl = './feed.xml';
 
         fetch(rssUrl)
             .then(response => response.text())
@@ -57,4 +74,5 @@
             .catch(error => console.error('加载 RSS Feed 失败:', error));
     </script>
 </body>
+
 </html>
