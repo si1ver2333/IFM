@@ -14,7 +14,7 @@
       <title>第 1 集：Hello World</title>
       <pubDate>Mon, 13 Oct 2025 00:00:00 +0800</pubDate>
       <description>这是第一集的详细介绍。</description>
-      <enclosure url="https://static.qiniu.com/your-bucket/ep001.mp3" 
+      <enclosure url="https://myifm.oss-cn-hangzhou.aliyuncs.com/JORDANN%20-%20Dehors.mp3" 
                  length="30000000" type="audio/mpeg"/>
       <guid isPermaLink="false">ep001-20251013</guid>
       <itunes:duration>00:30:15</itunes:duration>
