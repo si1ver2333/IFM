@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>播客 Item XML 生成器</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        input,
+        textarea,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 15px;
+            border: 1px solid #ddd;
+            overflow-x: auto;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🎙️ 播客单集 XML 生成器</h1>
+    <p>请填写以下信息，生成的 XML 片段将显示在下方。您需要手动将此片段添加到您的 <code>feed.xml</code> 文件中。</p>
+
+    <form id="item-form">
+        <label for="title">标题 (title)</label>
+        <input type="text" id="title" required value="标题">
+
+        <label for="pubDate">发布日期 (pubDate, 格式: Mon, 13 Oct 2025 00:00:00 +0800)</label>
+        <input type="text" id="pubDate" required value="日期">
+
+        <label for="description">描述 (description)</label>
+        <textarea id="description" rows="3" required>请输入描述</textarea>
+
+        <label for="audioUrl">音频 URL (enclosure url)</label>
+        <input type="url" id="audioUrl" required value="你的文件url">
+
+        <label for="length">文件大小 (enclosure length, 单位：字节)</label>
+        <input type="number" id="length" required value="7898573">
+
+        <label for="duration">时长 (itunes:duration, 格式: HH:MM:SS 或 总秒数)</label>
+        <input type="text" id="duration" required value="00:03:15">
+
+        <label for="guid">唯一标识符 (guid, 建议使用不重复的ID)</label>
+        <input type="text" id="guid" required value="ep___-日期">
+
+        <button type="submit">生成 XML 片段</button>
+    </form>
+
+    <h2>生成的 XML 片段</h2>
+    <pre id="output-xml"></pre>
+
+    <script>
+        document.getElementById('item-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // 收集表单数据
+            const title = document.getElementById('title').value.trim();
+            const pubDate = document.getElementById('pubDate').value.trim();
+            const description = document.getElementById('description').value.trim();
+            const audioUrl = document.getElementById('audioUrl').value.trim();
+            const length = document.getElementById('length').value.trim();
+            const duration = document.getElementById('duration').value.trim();
+            const guid = document.getElementById('guid').value.trim();
+
+            // 生成 XML 字符串
+            const xmlOutput = `
+<item>
+    <title>${title}</title>
+    <pubDate>${pubDate}</pubDate>
+    <description>${description}</description>
+    <enclosure url="${audioUrl}" length="${length}" type="audio/mpeg"/>
+    <guid isPermaLink="false">${guid}</guid>
+    <itunes:duration>${duration}</itunes:duration>
+</item>`.trim();
+
+            // 显示在页面上
+            document.getElementById('output-xml').textContent = xmlOutput;
+        });
+
+        // 自动设置初始发布日期为当前时间（UTC，方便兼容RSS规范）
+        const now = new Date();
+        const rfc2822Date = now.toUTCString().replace(/GMT/, '+0000');
+        document.getElementById('pubDate').value = rfc2822Date;
+
+        // 首次加载时生成一次，以便用户复制
+        document.getElementById('item-form').dispatchEvent(new Event('submit'));
+    </script>
+</body>
+
+</html>
