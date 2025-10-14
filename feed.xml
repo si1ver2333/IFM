@@ -15,9 +15,9 @@
       <pubDate>Mon, 13 Oct 2025 00:00:00 +0800</pubDate>
       <description>这是第一集的详细介绍。</description>
       <enclosure url="https://myifm.oss-cn-hangzhou.aliyuncs.com/JORDANN%20-%20Dehors.mp3" 
-                 length="30000000" type="audio/mpeg"/>
+                 length="7898573" type="audio/mpeg"/>
       <guid isPermaLink="false">ep001-20251013</guid>
-      <itunes:duration>00:30:15</itunes:duration>
+      <itunes:duration>00:03:15</itunes:duration>
     </item>
   </channel>
 </rss>
