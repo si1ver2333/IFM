@@ -19,5 +19,13 @@
       <guid isPermaLink="false">ep001-20251013</guid>
       <itunes:duration>00:03:15</itunes:duration>
     </item>
+    <item>
+    <title>Fatal Love</title>
+    <pubDate>Tue, 14 Oct 2025 10:15:46 +0800</pubDate>
+    <description>请输入描述</description>
+    <enclosure url="https://myifm.oss-cn-hangzhou.aliyuncs.com/Jori%20King%20-%20Fatal%20Love.mp3" length="7737099" type="audio/mpeg"/>
+    <guid isPermaLink="false">ep002-20251014</guid>
+    <itunes:duration>00:03:10</itunes:duration>
+</item>
   </channel>
 </rss>
