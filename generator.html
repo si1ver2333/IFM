@@ -72,8 +72,6 @@
     <script>
         document.getElementById('item-form').addEventListener('submit', function (e) {
             e.preventDefault();
-
-            // 收集表单数据
             const title = document.getElementById('title').value.trim();
             const pubDate = document.getElementById('pubDate').value.trim();
             const description = document.getElementById('description').value.trim();
@@ -81,8 +79,6 @@
             const length = document.getElementById('length').value.trim();
             const duration = document.getElementById('duration').value.trim();
             const guid = document.getElementById('guid').value.trim();
-
-            // 生成 XML 字符串
             const xmlOutput = `
 <item>
     <title>${title}</title>
@@ -92,17 +88,11 @@
     <guid isPermaLink="false">${guid}</guid>
     <itunes:duration>${duration}</itunes:duration>
 </item>`.trim();
-
-            // 显示在页面上
             document.getElementById('output-xml').textContent = xmlOutput;
         });
-
-        // 自动设置初始发布日期为当前时间（UTC，方便兼容RSS规范）
         const now = new Date();
         const rfc2822Date = now.toUTCString().replace(/GMT/, '+0000');
         document.getElementById('pubDate').value = rfc2822Date;
-
-        // 首次加载时生成一次，以便用户复制
         document.getElementById('item-form').dispatchEvent(new Event('submit'));
     </script>
 </body>

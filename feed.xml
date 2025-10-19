@@ -11,9 +11,9 @@
     <itunes:category text="Technology"/>
     <itunes:explicit>no</itunes:explicit>
     <item>
-      <title>第 1 集：Hello World</title>
+      <title>Hello World</title>
       <pubDate>Mon, 13 Oct 2025 00:00:00 +0800</pubDate>
-      <description>这是第一集的详细介绍。</description>
+      <description>先用音乐测试了</description>
       <enclosure url="https://myifm.oss-cn-hangzhou.aliyuncs.com/JORDANN%20-%20Dehors.mp3" 
                  length="7898573" type="audio/mpeg"/>
       <guid isPermaLink="false">ep001-20251013</guid>
@@ -22,7 +22,7 @@
     <item>
     <title>Fatal Love</title>
     <pubDate>Tue, 14 Oct 2025 10:15:46 +0800</pubDate>
-    <description>请输入描述</description>
+    <description>先用音乐测试了</description>
     <enclosure url="https://myifm.oss-cn-hangzhou.aliyuncs.com/Jori%20King%20-%20Fatal%20Love.mp3" length="7737099" type="audio/mpeg"/>
     <guid isPermaLink="false">ep002-20251014</guid>
     <itunes:duration>00:03:10</itunes:duration>
