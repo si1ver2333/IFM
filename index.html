@@ -44,6 +44,31 @@
         a {
             text-decoration: none;
         }
+        .button-row {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .button-row button {
+            flex: 1;
+            max-width: 200px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+        .button-row button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
     </style>
 </head>
 
@@ -53,7 +78,11 @@
             onclick="location.href='player.html'">
         <h1>🎙️ IFM </h1>
         <p>一个播客节目</p>
-        <button onclick="location.href='player.html'">进入播放页面 ▶</button>
+
+        <div class="button-row">
+            <button onclick="location.href='player.html'">进入播放页面 ▶</button>
+            <button onclick="location.href='generator.html'">打开 XML 生成器 ⚙️</button>
+        </div>
     </div>
 </body>
 
