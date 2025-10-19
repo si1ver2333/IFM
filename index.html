@@ -3,76 +3,58 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>我的 GitHub 播客平台</title>
+    <title>IFM Podcast</title>
     <style>
-        /* 您的 CSS 样式在这里 */
         body {
             font-family: sans-serif;
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: #f7f7f7;
         }
 
-        .episode {
-            border-bottom: 1px solid #eee;
-            padding-bottom: 15px;
-            margin-bottom: 20px;
+        .container {
+            max-width: 600px;
+            margin: 80px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        img.cover {
+            width: 100%;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        img.cover:hover {
+            transform: scale(1.03);
         }
 
         h1 {
-            text-align: center;
+            margin-top: 20px;
         }
 
-        audio {
-            width: 100%;
-            margin-top: 10px;
+        p {
+            color: #555;
+        }
+
+        a {
+            text-decoration: none;
         }
     </style>
 </head>
 
 <body>
-
-    <h1>我的播客：RSS Feed Driven</h1>
-    <p id="channel-description">加载中...</p>
-
-    <div id="episodes-list">
+    <div class="container">
+        <img src="https://si1ver2333.github.io/IFM/cover.jpg" alt="封面" class="cover"
+            onclick="location.href='player.html'">
+        <h1>🎙️ IFM Podcast</h1>
+        <p>一个关于科技与创新的播客节目</p>
+        <button onclick="location.href='player.html'">进入播放页面 ▶</button>
     </div>
-
-    <script>
-        // RSS Feed 的完整 URL，将由 GitHub Pages 自动生成
-        const rssUrl = './feed.xml';
-
-        fetch(rssUrl)
-            .then(response => response.text())
-            .then(str => (new window.DOMParser()).parseFromString(str, "text/xml"))
-            .then(data => {
-                const channel = data.querySelector('channel');
-                const episodesList = document.getElementById('episodes-list');
-
-                // 1. 设置频道描述
-                document.getElementById('channel-description').textContent = channel.querySelector('description').textContent;
-
-                // 2. 遍历并渲染每一集
-                const items = data.querySelectorAll('item');
-                items.forEach(item => {
-                    const title = item.querySelector('title').textContent;
-                    const description = item.querySelector('description').textContent;
-                    const audioUrl = item.querySelector('enclosure').getAttribute('url');
-
-                    const episodeDiv = document.createElement('div');
-                    episodeDiv.className = 'episode';
-                    episodeDiv.innerHTML = `
-                        <h2>${title}</h2>
-                        <p>${description}</p>
-                        <audio controls src="${audioUrl}">
-                            您的浏览器不支持 audio 元素。
-                        </audio>
-                    `;
-                    episodesList.appendChild(episodeDiv);
-                });
-            })
-            .catch(error => console.error('加载 RSS Feed 失败:', error));
-    </script>
 </body>
 
 </html>
